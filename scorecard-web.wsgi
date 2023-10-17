@@ -10,4 +10,4 @@ import matplotlib
 matplotlib.use('Agg')
 
 # main application
-from data_services import app as application
+from scorecard_web import app as application
