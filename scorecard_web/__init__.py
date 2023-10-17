@@ -53,8 +53,6 @@ def read_yml(file):
     with open(file, 'r') as ymlfile:
         file_dict=yaml.safe_load(ymlfile)
     return file_dict
-# Read in site map
-fluid_dict=read_yml(os.path.join(here, 'templates/site_map.yml'))
 
 @app.route("/robots.txt")
 def robots():
