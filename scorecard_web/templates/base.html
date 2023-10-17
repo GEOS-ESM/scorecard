@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta 
+      name="description"
+      content="Fluid provides applications for interactive analysis and visualizations of meteorological and chemical output from GMAO-supported forecast and reanalysis models"
+    >
+    <meta name="docsearch:language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://www.nasa.gov/favicon.ico" type="image/vnd.microsoft.icon" />
+    <title>{{ service }}{% if fields is defined %} - {{ fields['all'][fields['selected']] }}{% endif %}</title>
+
+    <link href="{{ url_for('static', filename='css/jquery-ui.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/page-styles.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/table-styles.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='css/slicknav-menu.css') }}" rel="stylesheet" type="text/css">
+
+    <script src="{{ url_for('static', filename='js/respond.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/new_jquery3.min.js') }}"></script>
+
+    <style type="text/css">
+      .alert-tag {
+               font-weight:bold;
+             }
+      .alert-text {
+               text-shadow: 0.25px 0.25px black;
+               font-size: 18px; 
+               color:#191370; 
+               padding-left: 25px;
+               display: block;
+             }
+    </style>
+
+
+    {% block css %}{% endblock %}
+
+    <script language="javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&subagency=GSFC&dclink=true"></script>
+
+</head>
+<body>
+  <a name="top" id="top"></a>
+  <div class="gridContainer clearfix">
+
+  <!-- HEADER -->
+  <div id="top-box" class="fluid hide_mobile" style="padding: 0.7em 0.7em">
+    <div class="top-nasa-logo"><img src="{{ url_for('static', filename='img/nasa-logo.png') }}" alt="NASA logo"/></div>
+    <div class="top-gmao-logo"><a href="https://gmao.gsfc.nasa.gov"><img src="{{ url_for('static', filename='img/GMAO-logo.png') }}" alt="GMAO logo"/></a></div>
+    <div class="top-box-text"><a href="https://gmao.gsfc.nasa.gov">Global Modeling and Assimilation Office</a></div>
+  </div>
+
+  <!-- MESSAGE ALERT SECTION -->
+  <p id="demo"></p>
+  {% block mainnav %}
+  {% include 'mainnav.html' with context %}
+  {% endblock mainnav %}
+  {% block top_buttons %}{% endblock %}
+
+  <!-- Alert Banner -->
+  <!--<div id="top-links-box" class="top-links-text fluid" style="text-align: left; background-color:#EAEC87; height:10%">
+    <p>
+      <span class="alert-text">
+        <span class="alert-tag">Please Read: </span>
+          We are currently experiencing site-wide instability on FLUID. Some data may be unavailable.
+      </span>
+    </p>
+  </div>-->
+
+
+  {% block sidebar %}{% endblock %}
+
+  {% block content %}{% endblock %}
+
+  <!-- footer -->
+  <div id="footer" class="fluid">
+    <div class="footer-text-box">
+      <div class="footer-links">
+        <a href="https://gmao.gsfc.nasa.gov">GMAO Homepage</a> | <a href="{{ url_for('about') }}">About FLUID</a> | <a href="https://gmao.gsfc.nasa.gov/contact.php">Contact FLUID</a> | <a href="mailto:Steven.Pawson-1@nasa.gov">NASA Official: Steven Pawson</a> | <a href="mailto:callum.r.wayman@nasa.gov">Web Curator: Callum Wayman</a> | <a href="http://www.nasa.gov/about/highlights/HP_Privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+
+    <div class="footer-mobile-gmao-logo"><img src="{{ url_for('static', filename='img/GMAO-logo.png') }}" alt="GMAO logo"/></div>
+    <div class="footer-mobile-nasa-logo"><img src="{{ url_for('static', filename='img/nasa-logo.png') }}" alt="NASA logo"/></div>
+  </div>
+
+  <!--  if 'gram' not in request.endpoint %}-->
+  <script src="{{ url_for('static', filename='js/jquery.slicknav.js') }}"></script>
+  <!--  else %}
+  <script src="{{ url_for('static', filename='js/jquery.slicknav_gram.js') }}"></script>
+   endif %}-->
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#menu").slicknav();
+    });
+  </script>
+  <script src="{{ url_for('wxmaps.static', filename='plots/ops-notice.js') }}"></script>
+  </div>
+</body>
+</html>

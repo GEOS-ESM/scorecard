@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+<div id="content-container" class="fluid" style="text-align: left;">
+  <h1>Scorecard Generation Assistant</h1>
+  <p>These forms aid in generating a scorecard using experimentation entered into the GMAO experiment database.</p>
+  <h2>List the Date Ranges for an Experiment:</h2>
+  <p>Must be the exact experiment name (e.g. x0035_Ana.21z)</p>
+  <form action="" id="dates" method="POST">
+    <input type="text" id="exp_dates" name="exp_dates"/>
+    <input type="submit" name="ed_submit"/>
+  </form>
+  {% if date_range %}
+    <p>Date Ranges for Experiment {{ exp_dates }}</p>
+    {% for date_val in date_range %}
+      <p>{{ date_val }}</p>
+    {% endfor %}
+  {% endif %}
+  <h2>Find Experiments Using Wildcard:</h2>
+  <p>Search the database by partial experiment name (e.g. x0042 returns multiple experiment names)</p>
+  <form action="" id="options" method="POST">
+    <input type="text" id="exp_options" name="exp_options"/>
+    <input type="submit" name="eo_submit"/>
+  </form>
+  {% if ev_list %}
+    <p>Experiment Names containing {{ exp_options }}</p>
+    {% for ev_val in ev_list %}
+      <p>{{ ev_val }}</p>
+    {% endfor %}
+  {% endif %}
+  <br>
+  <h2>Create Scorecard URL and Command Line Argument</h2>
+  <p>Enter Experiment, Control, Start Date, and End Date to generate a URL and command-line execution to generate a scorecard </p>
+  <form action="" id="make_url" method="POST">
+    <h3>Experiment (e.g. x0043.21z)</h3>
+    <input type="text" id="exp" name="exp" style="background-image: none"/>
+    <h3>Control (e.g. x0042.21z)</h3>
+    <input type="text" id="ctrl" name="ctrl"/>
+    <h3>Start Date (YYYYMMDD, e.g. 20191231)</h3>
+    <input type="text" id="bdate" name="bdate"/>
+    <h3>End Date (YYYYMMDD, e.g. 20200131)</h3>
+    <input type="text" id="edate" name="edate"/>
+    <br>
+    <br>
+    <input type="submit" name="gen_sc_url" value="Generate URL"/>
+    {% if exp_name and ctrl_name and bdate_val and edate_val %}
+      <p>Scorecard URL: <a href="https://dphttpdev01.nccs.nasa.gov/data-services/scorecard/v1/?exp={{ exp_name }}&cntrl={{ ctrl_name }}&bdate={{ bdate_val }}&edate={{ edate_val }}" >https://dphttpdev01.nccs.nasa.gov/data-services/scorecard/v1/?exp={{ exp_name }}&cntrl={{ ctrl_name }}&bdate={{ bdate_val }}&edate={{ edate_val }}</a></p>
+      <p>Command Line Interface Argument: python /discover/nobackup/cwayman/scorecard/views.py --exp {{ exp_name }} --cntrl {{ ctrl_name }} --bdate {{ bdate_val }} --edate {{ edate_val }}</p>
+      <p>Before running the command line scorecard tool on discover, please issue the following command from the bash shell to set up your environment: source /discover/nobackup/cwayman/scorecard/modules
+    {% endif %}
+  </form>
+  <br>
+  <br>
+  <form action="" id="reset-all" method="POST">
+    <input type="hidden" id="exp_dates" name="exp_dates" value="" />
+    <input type="hidden" id="exp_options" name="exp_options" value="" />
+    <input type="hidden" id="exp" name="exp" value="" />
+    <input type="hidden" id="ctrl" name="ctrl" value="" />
+    <input type="hidden" id="bdate" name="bdate" value="" />
+    <input type="hidden" id="edate" name="edate" value="" />
+    <input type="submit" name="reset_all" value="Reset All"/>
+  </form>
+</div> <!--content-container-->
+
+{% endblock %}

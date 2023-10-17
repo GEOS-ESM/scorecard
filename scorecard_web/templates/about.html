@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+  {% block css %}
+    <link href="{{ url_for('static', filename='css/data-services-special.css') }}" rel="stylesheet">
+  {% endblock %}
+
+  {% block top_buttons %}
+  <div id="top-links-box" class="top-links-text fluid">
+      <a href="{{ url_for('index') }}" style="{% if instance == 'weather' %}color: #b7a98b;{% endif %}">Weather</a> | <a href="{{ url_for('index', instance='missions') }}" style="{% if instance == 'missions' %}color: #b7a98b;{% endif %}">Mission Support</a> | <a href="{{ url_for('index', instance='cf') }}" style="{% if instance == 'cf' %}color: #b7a98b;{% endif %}">CF</a> | <a href="{{ url_for('index', instance='reanalysis') }}" style="{% if instance == 'reanalysis' %}color: #b7a98b;{% endif %}">Reanalysis</a> | &nbsp;&nbsp;Seasonal&nbsp;&nbsp;
+  </div>
+  {% endblock %}
+
+  {% block sidebar %}
+    <!-- Left Menu -->
+    <div id="menu-container" class="fluid hide_mobile">
+      <ul id="menu">
+        <li>Navigation
+          <ul>
+            <li><a href="{{ url_for('gram.api') }}">» Datagrams</a></li>
+            <li><a href="{{ url_for('wxmaps.api') }}">» WxMaps</a></li>
+            <li><a href="{{ url_for('wxmaps.api', theme='chem2d') }}">» Chem Maps</a></li>
+            <li><a href="https://gmao.gsfc.nasa.gov/forecasts/systems/fp/obstat_coverage/">» Observing System Stats</a></li>
+            <li><a href="https://gmao.gsfc.nasa.gov/forecasts/radmon_coverage.php">» Radiances Monitoring</a></li>
+            <li><a href="https://gmao.gsfc.nasa.gov/forecasts/systems/fp/obs_impact/">» Observation Impacts</a></li>
+            <li><a href="https://cds-cv.nccs.nasa.gov/GMAO-V/">» WMS Viewer: GEOS Aerosols</a></li>
+          </ul>
+        </li>
+        <li>Data Access
+          <ul>
+            <li style="font-weight: normal">» HTTPS</li>
+            <li>&nbsp;&nbsp;&nbsp;<a href="https://portal.nccs.nasa.gov/datashare/gmao_ops/pub/fp/das/">Assimilation</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="https://portal.nccs.nasa.gov/datashare/gmao_ops/pub/fp/forecast/">Forecast</a></li>
+            <li style="font-weight: normal">» OPeNDAP</li>
+            <li>&nbsp;&nbsp;&nbsp;<a href="http://opendap.nccs.nasa.gov/dods/GEOS-5/fp/0.25_deg/assim">Assimilation</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="http://opendap.nccs.nasa.gov/dods/GEOS-5/fp/0.25_deg/fcast">Forecast</a></li>
+            <!-- <li style="font-weight: normal">» FTP (No Password)</li>
+            <li>&nbsp;&nbsp;&nbsp;<a href="ftp://gmao_ops@ftp.nccs.nasa.gov/fp/das/">Assimilation</a>&nbsp;&nbsp; | &nbsp;&nbsp;<a href="ftp://gmao_ops@ftp.nccs.nasa.gov/fp/forecast/">Forecast</a></li> -->
+          </ul>
+        </li>
+      </ul>
+    </div>
+  {% endblock %}
+
+  {% block content %}
+    <!-- Main Content -->
+    <div id="content-container" class="fluid">
+      <h1>{{ service }}</h1>
+
+      <p align="left">The purpose of the <a href="https://gmao.gsfc.nasa.gov">Global Modeling and Assimilation Office (GMAO)</a> Framework for Live User-Invoked Data (FLUID) is to provide applications for interactive analysis and visualizations of experimental, climatological data in support of the GMAO mission. Adopting more modern approaches to user-invoked data, or providing data "as-needed," implies the need for more efficient and intuitive access to data and scalability. With diverse and voluminous GMAO data on <a href="https://gmao.gsfc.nasa.gov">NASA Center for Climate Simulation (NCCS)</a> systems, the software, hardware, and even user access now require adaptations to fulfill requests from many research areas and devices for both internal and public consumption.</p>
+
+      <p align="left">Built where the data lives, GMAO FLUID applications tie together GMAO experimental data with products delivered to scientists at the GMAO, other NASA organizations, and beyond. FLUID uses a virtual environment on the NCCS development DataPortal. The Python-based web application has a backend tied to the Grid Analysis and Display System (GrADS) software for image processing.</p>
+
+      <p align="left"> For more information, please visit our main Global Modeling and Assimilation Office (GMAO) departmental page: <a href="https://gmao.gsfc.nasa.gov">https://gmao.gsfc.nasa.gov</a>.</p>
+
+    </div>
+  {% endblock %}

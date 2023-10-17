@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+  {% block css %}
+    <!-- page-styles.css differs -->
+    <link href="{{ url_for('static', filename='css/page-styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/meteo-special.css') }}" rel="stylesheet">
+    <!-- wxmaps-special.css differs -->
+    <link href="{{ url_for('static', filename='css/wxmaps-special.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/scorecard-styles.css') }}" rel="stylesheet">
+
+    <script src="{{ url_for('static', filename='js/jquery-ui.js') }}"></script>
+    {% if animate == 1%}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/hanis_min.js') }}"> </script>
+    <script>
+      function setwin() {
+        var head = document.getElementById("top-box");
+        var nav = document.getElementById("menu-container");
+        var foot = document.getElementById("footer");
+
+        var newW = window.innerWidth - (nav.offsetLeft + nav.offsetWidth);
+        var newH = window.innerHeight - foot.offsetHeight - head.offsetHeight;
+
+        HAniS.setWindowSize(newW, newH);
+      }
+      window.addEventListener("resize", function() {
+        setwin();
+      },false);
+      $(window).bind('resize', function(e)
+      {
+        if (window.RT) clearTimeout(window.RT);
+        window.RT = setTimeout(function()
+        {
+          this.location.reload(false); /* false to get page from cache */ 
+        }, 100);
+      });
+      function hloop(){
+        HAniS.setup('{{ anim }}','handiv');
+        setwin;
+      };
+      window.onload = hloop;
+    </script>
+    {% endif %}
+  {% endblock %}
+
+  {% block top_buttons %}
+    <div id="top-links-box" class="top-links-text fluid">
+      <a href="{{ url_for('index') }}" style="{% if instance == 'weather' %}color: #b7a98b;{% endif %}">Weather</a> | <a href="{{ url_for('index', instance='missions') }}" style="{% if instance == 'missions' %}color: #b7a98b;{% endif %}">Mission Support</a> | &nbsp;&nbsp;Reanalysis&nbsp;&nbsp; | &nbsp;&nbsp;Seasonal&nbsp;&nbsp;
+    </div>
+  {% endblock %}
+
+  {% block sidebar %}
+  {% endblock %}
+
+  {% block content %}
+    <!-- Main Content -->
+    <div id="content-container" class="fluid" style="width: 100%;">
+      <div style="float:right; width:7%;"><br></div>
+      <div style="text-align:left;float:right;width:25%;">
+      <h2 style="text-decoration: underline">Legend</h2>
+
+      <p><span style="font-family: monospace; color: green; font-size: 15px; letter-spacing: 0; text-align: left;">▲</span> far better, significant (99.99% confidence) <br> <span style="font-family: monospace; color: green; font-size: 15px; letter-spacing: 0; text-align: left;">△</span> better, significant (99% confidence) <br> <span style="font-family: monospace; color: green; font-size: 15px; letter-spacing: 0; text-align: left;">░</span> slightly better, significant (95% confidence) <br> <span style="font-family: monospace; color: grey; font-size: 15px; letter-spacing: 0; opacity: 0.5; text-align: left;">█</span> not really any difference <br> <span style="font-family: monospace; color: red; font-size: 15px; letter-spacing: 0; text-align: left;">░</span> slightly worse, significant (95% confidence) <br> <span style="font-family: monospace; color: red; font-size: 15px; letter-spacing: 0; text-align: left;">▽</span> worse, significant (99% confidence) <br> <span style="font-family: monospace; color: red; font-size: 15px; letter-spacing: 0; text-align: left;">▼</span> far worse, significant (99.99% confidence)</p>
+      </div>
+      <div style="float:left; width:4%"><br></div>
+      <div style="text-align:left;float:left;width:50%;">
+      <br><br><br>
+      <!-- <h1>x0029_gmix4 GEOS Scorecard</h1> -->
+      <!-- <h1>x0034_mhs GEOS Scorecard</h1> -->
+      <h1>f522_fpp GEOS Scorecard</h1>
+      {% if season %}
+      <h1>x0036 GEOS Scorecard</h1>
+      {% endif %}
+      <!-- <p>Comparison of scores of f516_fp (past operational experimental run) and f517_fp (current operational experimental run) for the period of December 1, 2017 to December 31, 2017. | 
+      Each symbol in a cell represents one 6-hourly forecast step, i.e. 8 day forecast length.</p>-->
+      <!-- <p><span style="font-size: 17px;">Comparison of scores of <b>x0029</b> (Control) and <b>x0029_gmix4</b> (Experiment) experimental runs for the period of <b>December 1, 2016 to December 31, 2016</b>.</span></p>-->
+      <!-- <p><span style="font-size: 17px;">Comparison of scores of <b>x0034</b> (Control) and <b>x0034_mhs</b> (Experiment) experimental runs for the period of <b>May 1, 2018 to May 31, 2018</b>.</span></p> -->
+      <p><span style="font-size: 17px;">Comparison of scores of <b>f521_fp</b> (Control) and <b>f522_fpp</b> (Experiment) experimental runs for the period of <b>November 1, 2018 to January 31, 2019</b>.</span></p>
+      {% if season %}
+      {% if 'winter' in season %}
+      <p><span style="font-size: 17px;">Comparison of scores of <b>x0035_Ana</b> (Control) and <b>x0036</b> (Experiment) experimental runs for the period of <b>December 1, 2017 to January 31, 2018</b>.</span></p>
+      {% else %}
+      <p><span style="font-size: 17px;">Comparison of scores of <b>x0035_Ana</b> (Control) and <b>x0036</b> (Experiment) experimental runs for the period of <b>June 1, 2018 to July 31, 2018</b>.</span></p>
+      {% endif %}
+      {% endif %}
+
+      </div>
+      <br style="clear:both;"/>
+
+      <div id="table-container">
+        {% for region in data|sort %}
+        {% set r = region %}
+          <div class="table-box">
+            <table width="100%" class="scorecard">
+              <thead>
+                <tr>
+                  <th colspan="4">{{ r| capitalize | replace("N.hem", "Northern Hemisphere") | replace("S.hem", "Southern Hemisphere") }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td width="14%" class="td-subheading">Variable</td>
+                  <td width="7%" class="td-subheading">Pressure Level</td>
+                  <td width="6%" class="td-subheading">COR</td>
+                  <td width="6%" class="td-subheading">RMS</td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="text-align: left; padding-left: 30px;">Forecast Day</td>
+                  <!-- <td>% for d in range(data[r]['h']['850']['cor']|length) %}<span style="font-family: monospace, Courier, Menlo; font-size: 15px; letter-spacing: 0; text-align: left;"> d+1 }}</span>% endfor %}</td>
+                  <td>% for d in range(data[r]['h']['850']['rms']|length) %}<span style="font-family: monospace, Courier, Menlo; font-size: 15px; letter-spacing: 0; text-align: left;"> d+1 }}</span>% endfor %}</td>-->
+                  <td>{% for d in range(data[r]['h']['850']['cor']|length) %}{% if d % 2 == 0 %}<span style="font-family: monospace, Courier, Menlo; font-size: 15px; letter-spacing: 0; text-align: left;">{{ ((d / 2)+1)|int }}</span>{% else %}<span style="font-family: monospace, Courier, Menlo; font-size: 15px; letter-spacing: 0; text-align: left;">&nbsp;</span>{% endif %}{% endfor %}</td>
+                  <td>{% for d in range(data[r]['h']['850']['rms']|length) %}{% if d % 2 == 0 %}<span style="font-family: monospace, Courier, Menlo; font-size: 15px; letter-spacing: 0; text-align: left;">{{ ((d / 2)+1)|int }}</span>{% else %}<span style="font-family: monospace, Courier, Menlo; font-size: 15px; letter-spacing: 0; text-align: left;">&nbsp;</span>{% endif %}{% endfor %}</td>
+                </tr>
+                {% for field in data[region]|sort %}
+                {% set f = field %}
+                {% set i = 0 %}
+                <tr>
+                  <td rowspan="{{ data[r][f]|length }}">{{ f | replace("u", "U-Wind") | replace("t", "Temperature") | replace("h", "Geopotential Height") | replace("q", "Specific Humidity") | replace("v", "V-Wind") }}</td>
+                {% set levels = [] %}
+                {% for l in data[r][f] %}
+                  {% if levels.append(l|int) %}{% endif %}
+                {% endfor %}
+                {% for level in levels|sort %}
+                  {% set l = level|string %}
+                  <td style="background-color: rgba(61, 97, 212, {{ i*0.1 }})">{{ l }}</td>
+                  {% set i = i + 1 %}
+                  <td>
+                    {%- for t,s in data[r][f][l]['cor'] -%}
+                      {%- if s == 3 -%}
+                        <span style="font-family: monospace, Courier, Menlo; color: green; font-size: 15px; letter-spacing: 0; text-align: left;">▲</span>
+                      {%- elif s == 2 -%}
+                        <span style="font-family: monospace, Courier, Menlo; color: green; font-size: 15px; letter-spacing: 0; text-align: left;">△</span>
+                      {%- elif s == 1 -%}
+                        <span style="font-family: monospace, Courier, Menlo; color: green; font-size: 15px; letter-spacing: 0; text-align: left;">░</span>
+                      {%- elif s == -3 -%}
+                        <span style="font-family: monospace, Courier, Menlo; color: red; font-size: 15px; letter-spacing: 0; text-align: left;">▼</span>
+                      {%- elif s == -2 -%}
+                        <span style="font-family: monospace, Courier, Menlo; color: red; font-size: 15px; letter-spacing: 0; text-align: left;">▽</span>
+                      {%- elif s == -1 -%}
+                        <span style="font-family: monospace, Courier, Menlo; color: red; font-size: 15px; letter-spacing: 0; text-align: left;">░</span>
+                      {%- else -%}
+                        <span style="font-family: monospace, Courier, Menlo; color: grey; font-size: 15px; letter-spacing: 0; opacity: 0.5; text-align: left;">█</span>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </td>
+                  <td>
+                    {%- for t,s in data[r][f][l]['rms'] -%}
+                      {%- if s == 3 -%}
+                        <span style="font-family: monospace, Courier, Menlo; color: green; font-size: 15px; letter-spacing: 0; text-align: left;">▲</span>
+                      {%- elif s == 2 -%}
+                        <span style="font-family: monospace, Courier, Menlo; color: green; font-size: 15px; letter-spacing: 0; text-align: left;">△</span>
+                      {%- elif s == 1 -%}
+                        <span style="font-family: monospace, Courier, Menlo; color: green; font-size: 15px; letter-spacing: 0; text-align: left;">░</span>
+                      {%- elif s == -3 -%}
+                        <span style="font-family: monospace, Courier, Menlo; color: red; font-size: 15px; letter-spacing: 0; text-align: left;">▼</span>
+                      {%- elif s == -2 -%}
+                        <span style="font-family: monospace, Courier, Menlo; color: red; font-size: 15px; letter-spacing: 0; text-align: left;">▽</span>
+                      {%- elif s == -1 -%}
+                        <span style="font-family: monospace, Courier, Menlo; color: red; font-size: 15px; letter-spacing: 0; text-align: left;">░</span>
+                      {%- else -%}
+                        <span style="font-family: monospace, Courier, Menlo; color: grey; font-size: 15px; letter-spacing: 0; opacity: 0.5; text-align: left;">█</span>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </td>
+                </tr>
+                {% endfor %}
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  {% endblock %}
