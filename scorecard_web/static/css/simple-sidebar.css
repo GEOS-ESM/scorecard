@@ -1,0 +1,449 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+	background: #F8F8F8;
+}
+ 
+#wrapper.toggled {
+    padding-left: 300px;
+    overflow: scroll;
+}
+ 
+#sidebar-wrapper {
+    z-index: 1000;
+    position: absolute; 
+    left: 300px;
+    width: 0;
+    height: 100%;
+    margin-left: -300px;
+    overflow-y: auto;
+    background: #F8F8F8;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 300px;
+}
+ 
+#page-content-wrapper {
+    position: absolute;
+    padding: 0;
+    width: 100%;
+	height: auto;
+    overflow-x: hidden;
+	background-color:#FFF;
+}
+
+.xyz{
+    min-width: 300px;
+}
+#wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0px; 
+}
+.fixed-brand{
+    width: auto;
+}
+
+.no-margin{
+    margin:0;
+}
+
+
+
+/* Styles for left menu with boxes */
+
+
+.category-wrapper {
+	width: 100%;
+	margin: 0 auto;
+	margin-bottom: 25px;
+	text-align: center;
+	clear: both;
+}
+
+.category-wrapper p {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 1.1em;
+	margin: 0 auto;
+}
+	
+.category-wrapper ul {
+	list-style: none;
+}
+	
+.category-wrapper li {
+	width: 40%;
+	margin: 2px;
+	float: left;
+}
+.category-wrapper li a {
+	background: #CCC;
+	text-decoration: none;
+	color: #000;
+	display: block;
+	line-height: 2.2em;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: .9em;
+	font-weight: 500;
+}
+	
+.category-wrapper li a:hover {
+	color: #FFF;
+	background: #336699;
+	text-decoration: none;
+}
+
+.category-wrapper li a.active {
+        color: #FFF;
+        background: #336699;
+        text-decoration: none;
+}
+
+.category-wrapper li input[type=radio] {
+    display: none;
+}
+
+.category-wrapper li label {
+    background: #CCC;
+    text-decoration: none;
+    color: #000;
+    display: block;
+    line-height: 2.2em;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: .9em;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.category-wrapper li label:hover {
+   color: #FFF;
+   background: #336699;
+   text-decoration: none;
+}
+
+.category-wrapper li input:checked + label {
+   color: #FFF;
+   background: #336699;
+   text-decoration: none;
+}
+
+
+.category-wrapper-center {
+	width: 100%;
+	margin: 0 auto;
+	padding-top: 25px;
+	text-align: center;
+	clear: both;
+}
+
+.category-wrapper-center p {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 1.1em;
+	margin: 0 auto;
+}
+	
+.category-wrapper-center ul {
+	list-style: none;
+}
+	
+.category-wrapper-center li {
+	width: 80%;
+	margin: 8px 0;
+}
+
+.category-wrapper-center li a {
+	background: #CCC;
+	text-decoration: none;
+	color: #000;
+	display: block;
+	line-height: 2.5em;
+	text-align: center;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: .9em;
+	font-weight: 500;
+}
+	
+.category-wrapper-center li a:hover {
+	color: #FFF;
+	background: #336699;
+	text-decoration: none;
+}
+
+.category-wrapper-center li a.active {
+        color: #FFF;
+        background: #336699;
+        text-decoration: none;
+}
+
+
+
+select {
+    width: 60%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+	margin: 0 auto;
+	text-indent: 5px;
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-right: 7px inset transparent;
+  border-bottom: 9px solid #336699; 
+  border-left: 7px transparent inset;
+  clear: both;
+  margin: 0 auto 6px auto;
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-right: 7px inset transparent;
+  border-top: 9px solid #336699; 
+  border-left: 7px transparent inset;
+  clear: both;
+  margin: 6px auto 0 auto;
+}
+
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 7px inset transparent;
+  border-bottom: 7px transparent inset; 
+  border-left: 9px solid #336699;
+  display: inline-block;
+  margin-left: 6px;
+  margin-bottom: -1px;
+}
+
+.arrow-left {
+  width: 0; 
+  height: 0; 
+  border-top: 7px inset transparent;
+  border-bottom: 7px transparent inset; 
+  border-right: 9px solid #336699;
+  display: inline-block;
+  margin-right: 6px;
+  margin-bottom: -1px;
+}
+
+.toggle-arrow {
+  width: 0; 
+  height: 0; 
+  border-top: 6px inset transparent;
+  border-bottom: 6px transparent inset; 
+  border-right: 8px solid #336699;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: -1px;
+}
+
+
+.selection-btn {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1.1em;
+  padding: 10px 20px;
+  text-align: center;
+  width: 70%;
+  margin: 20px auto;
+  display:block;
+}
+
+.blue {
+  background: #336699;
+  text-decoration: none;
+  color: #FFF;
+}
+
+.blue:hover {
+  background: #7eacda;
+  text-decoration: none;
+  color: #FFF;
+}
+
+
+.gray {
+	background: #CCC;;
+	text-decoration: none;
+	color: #000;
+}
+
+.gray:hover {
+  background: #666;
+  text-decoration: none;
+  color: #000;
+}
+
+
+
+
+
+/* Styles for Data Portal left menu */
+
+.data-services-links {
+	text-align: left;
+	margin: 2em 0 0 3em;
+}
+	
+	.data-services-links p {
+		font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+		color: #000;
+		font-size: 1.2em;
+		margin-bottom: 1.2em;
+		font-weight: normal;
+	}
+
+
+ 
+ 
+ 
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 300px;
+    }
+    .fixed-brand{
+        width: 300px;
+    }
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+ 
+    #sidebar-wrapper {
+        width: 300px;
+    }
+ 
+    #wrapper.toggled #sidebar-wrapper {
+        width: 300px;
+    }
+    #wrapper.toggled-2 #sidebar-wrapper {
+        width: 0;
+    }
+    #wrapper.toggled-2 #sidebar-wrapper:hover {
+        width: 300px;
+    }
+ 
+ 
+    #page-content-wrapper {
+        padding: 0px;
+        position: relative;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+ 
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+        padding-left: 300px;
+    }
+    #wrapper.toggled-2 #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+        margin-left: -300px;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        width: auto;
+ 
+    }
+}
+
+
+/* Search Form */
+
+
+.searchbox{
+	padding: 13px;
+	width: 80%;
+	margin: 5px auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+input[type="search"]{
+	 width: 80%;
+	 height: 30px;
+	 padding-left: 15px;
+	 border: solid thin #BABABA;
+	 color: #939393;
+	 font-weight: 500;
+	 background-color: #FFF;
+}
+
+button[type="submit"]{
+ width:35px;
+ height:30px;
+ background-image:url(../gfx/search-btn.png);
+ background-repeat: no-repeat;
+ background-position: 10px 5px;
+ background-color:transparent;
+ -webkit-background-size:20px 20px;
+ background-size:20px 20px;
+ border:none;
+ cursor:pointer;
+}
+
+input[type="search"]:focus{
+ outline:0;
+}
+
+/* Buttons at top */
+
+@media(min-width:768px) {
+
+.top-buttons {
+	float: right;
+	padding-right:20px;
+	margin-top:15px;
+	z-index:1000;
+	display: block;
+}
+
+.top-button-ind {
+	float: left;
+	padding-right:15px;
+	padding-left: 15px;
+	font-weight: bold;
+	border-right: thin solid #AAA;
+}
+
+}
+
+
+@media(max-width:767px) {
+
+.top-buttons {
+	display: none;
+}
+
+}

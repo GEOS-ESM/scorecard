@@ -1,0 +1,722 @@
+@charset "UTF-8";
+/* CSS Document */
+
+		
+.category-wrapper-meteo {
+	width: 100%;
+	margin: 0 auto;
+	padding-top: 15px;
+	text-align: center;
+	clear: both;
+}
+
+.category-wrapper-meteo p {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 1.1em;
+	margin: 0 auto;
+	padding-bottom: 0;
+	color: #FFF;
+}
+
+.category-wrapper-meteo ul {
+	list-style: none;
+}
+
+.category-wrapper-meteo li {
+	width: 90%;
+	margin: .8em 0;
+}
+
+.category-wrapper-meteo li a {
+	background: #CCC;
+	text-decoration: none;
+	display: block;
+	line-height: 1.8em;
+	text-align: center;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 1em;
+	font-weight: 500;
+	color: #000 !important;
+}
+
+.category-wrapper-meteo li a:hover, li a.active {
+	color: #FFF !important;
+	background: #336699;
+	text-decoration: none;
+        border-radius: 0;
+}
+
+select {
+    width: 60%;
+    padding: .5em;
+    border: solid thin #CCC;
+    border-radius: 4px;
+    background-color: #FFF;
+	margin: 0 auto;
+	text-indent: 5px;
+}
+
+.movie {
+    padding: 2px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+	width: 120px;
+	margin: 0 auto;
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-right: 7px inset transparent;
+  border-bottom: 9px solid #336699; 
+  border-left: 7px transparent inset;
+  clear: both;
+  margin: 0 auto 6px auto;
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-right: 7px inset transparent;
+  border-top: 9px solid #336699; 
+  border-left: 7px transparent inset;
+  clear: both;
+  margin: 6px auto 0 auto;
+}
+
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 7px inset transparent;
+  border-bottom: 7px transparent inset; 
+  border-left: 9px solid #336699;
+  display: inline-block;
+  margin-left: 6px;
+  margin-bottom: -1px;
+}
+
+.arrow-left {
+  width: 0; 
+  height: 0; 
+  border-top: 7px inset transparent;
+  border-bottom: 7px transparent inset; 
+  border-right: 9px solid #336699;
+  display: inline-block;
+  margin-right: 6px;
+  margin-bottom: -1px;
+}
+
+.toggle-arrow {
+  width: 0; 
+  height: 0; 
+  border-top: 6px inset transparent;
+  border-bottom: 6px transparent inset; 
+  border-right: 8px solid #336699;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: -1px;
+}
+
+
+.selection-btn {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1.1em;
+  padding: 10px 20px;
+  text-align: center;
+  width: 70%;
+  margin: 20px auto;
+  display:block;
+}
+
+.blue {
+  background: #336699;
+  text-decoration: none;
+  color: #FFF;
+}
+
+.blue:hover {
+  background: #7eacda;
+  text-decoration: none;
+  color: #FFF;
+}
+
+
+.gray {
+	background: #CCC;;
+	text-decoration: none;
+	color: #000;
+}
+
+.gray:hover {
+  background: #666;
+  text-decoration: none;
+  color: #000;
+}
+
+
+
+
+	
+/* Calendar */
+
+.calendar-container {
+	width: 90%;
+	margin-right: auto;
+	margin-left: auto;
+    padding-bottom:15px;
+}
+
+		
+	.block {
+		margin: 25px auto;
+		background: #394264;
+		border-radius: 10px;
+	}
+
+.titular {
+	display: block;
+	line-height: 3em;
+	font-size: 1.2em;
+	color: #FFF;
+	margin: 0;
+	text-align: center;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	background: #336699;
+}
+	
+.arrow-btn-container {
+	position: relative;
+}
+	.arrow-btn {
+		position: absolute;
+		display: block;
+		width: 35px;
+		height: 35px;
+		-webkit-transition: background .3s;
+		transition: background .3s;
+	}
+	
+		.arrow-btn.left {
+			border-top-left-radius: 5px;
+		}
+		.arrow-btn.right {
+			border-top-right-radius: 5px;
+			right: 0;
+			top: 0;
+		}
+		.arrow-btn .icon {
+			display: block;
+			font-size: 1.1em;
+			border: 2px solid #fff;
+			border-radius: 100%;
+			line-height: 3em;
+			width: 21px;
+			margin: 10px auto;
+			text-align: center;
+		}
+			.arrow-btn.left .icon {
+				padding-right: 2px;
+			}
+
+			.calendar-month {
+				height: auto;
+			}
+			
+			.calendar-month .titular {
+				background: #336699;
+			}
+			
+			.calendar-month .arrow-btn:hover {
+						background: #1a4e95;
+						text-decoration: none;
+					}
+	
+						
+				.calendar {
+					text-align: center;
+					margin: 1em auto;
+					border-collapse: collapse;
+				}
+					.calendar a {
+						font-size: .8em;
+						text-decoration: none;
+						color: #FFF;
+					}
+					
+					.calendar td, .calendar th {	
+					  padding: 0 !important;
+					}
+					.calendar .days-week {
+						color: #6699cc;
+					}
+					.calendar .today {
+						display: block;
+						background: #e64c65;
+					}
+
+.calendar-arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 7px inset transparent;
+  border-bottom: 7px transparent inset; 
+  border-left: 9px solid #FFFFFF;
+  display: inline-block;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+
+.calendar-arrow-left {
+  width: 0; 
+  height: 0; 
+  border-top: 7px inset transparent;
+  border-bottom: 7px transparent inset; 
+  border-right: 9px solid #FFFFFF;
+  display: inline-block;
+  margin-top: 12px;
+  margin-left: 15px;
+}
+	
+	
+	
+	
+	
+	
+/* Tab Content - menucool.com */
+
+ul.tabs
+{
+    padding: 4% 0 3px 0;
+    font-size: 0;
+    margin:0;
+    list-style-type: none;
+    text-align: center; /*set to left, center, or right to align the tabs as desired*/
+}
+        
+ul.tabs li
+{
+	display: inline;
+	white-space:nowrap;
+    margin-right:3px; /*distance between tabs*/
+}
+
+ul.tabs li a
+{
+    font: normal 11px "Helvetica Neue", Helvetica, sans-serif;
+    text-decoration: none;
+	line-height: 2.3em;
+    position: relative;
+    padding: 7px 9px;
+    border: 1px solid #CCC;
+    color: #000;
+    background: #F0F0F0 url(../gfx/tabbg.gif) 0 0 repeat-x;
+    border-radius: 3px 3px 0 0;
+    outline: none;
+}
+        
+ul.tabs li a:visited
+{
+    color: #000;
+}
+        
+ul.tabs li a:hover
+{
+    border: 1px solid #CCC;
+	border-bottom-color: transparent;
+    background:#F0F0F0 url(../gfx/tabbg.gif) 0 -36px repeat-x;
+}
+        
+ul.tabs li.selected a, ul.tabs li.selected a:hover
+{
+    position: relative;
+    top: 0px;
+    font-weight:bold;
+    background: white;
+    border: 1px solid #CCC;
+}
+        
+        
+ul.tabs li.selected a:hover
+{
+    text-decoration: none;
+}
+     
+
+div.tabcontents
+{
+    border: 1px solid #CCC; padding: 30px;
+    background-color:#FFF;
+    border-radius: 0 3px 3px 3px;
+}
+
+
+	
+
+
+/* Tablet Layout: 481px to 950px. Inherits styles from: Mobile Layout. */
+
+@media only screen and (min-width: 481px) {
+
+	
+.category-wrapper-meteo {
+		padding: 25px 0 0 0;
+
+}
+
+	.category-wrapper-meteo p {
+		color: #000;
+	}
+	
+	.category-wrapper-meteo ul {
+		list-style: none;
+	}
+	
+	.category-wrapper-meteo li {
+		width: 85%;
+		margin: .2em 0 1em 0;
+	}
+
+		.category-wrapper-meteo li a {
+			line-height: 2.8em;
+			}
+	
+			.category-wrapper-meteo li a:hover {
+	
+				}
+
+
+select {
+    width: 60%;
+    padding: .5em;
+    border: solid thin #CCC;
+    border-radius: 4px;
+    background-color: #FFF;
+	margin: 0 auto;
+	text-indent: 5px;
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-right: 7px inset transparent;
+  border-bottom: 9px solid #336699; 
+  border-left: 7px transparent inset;
+  clear: both;
+  margin: 0 auto 6px auto;
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-right: 7px inset transparent;
+  border-top: 9px solid #336699; 
+  border-left: 7px transparent inset;
+  clear: both;
+  margin: 6px auto 0 auto;
+}
+
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 7px inset transparent;
+  border-bottom: 7px transparent inset; 
+  border-left: 9px solid #336699;
+  display: inline-block;
+  margin-left: 6px;
+  margin-bottom: -1px;
+}
+
+.arrow-left {
+  width: 0; 
+  height: 0; 
+  border-top: 7px inset transparent;
+  border-bottom: 7px transparent inset; 
+  border-right: 9px solid #336699;
+  display: inline-block;
+  margin-right: 6px;
+  margin-bottom: -1px;
+}
+
+.toggle-arrow {
+  width: 0; 
+  height: 0; 
+  border-top: 6px inset transparent;
+  border-bottom: 6px transparent inset; 
+  border-right: 8px solid #336699;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: -1px;
+}
+
+
+.selection-btn {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1.1em;
+  padding: 10px 20px;
+  text-align: center;
+  width: 70%;
+  margin: 20px auto;
+  display:block;
+}
+
+.blue {
+  background: #336699;
+  text-decoration: none;
+  color: #FFF;
+}
+
+.blue:hover {
+  background: #7eacda;
+  text-decoration: none;
+  color: #FFF;
+}
+
+
+.gray {
+	background: #CCC;;
+	text-decoration: none;
+	color: #000;
+}
+
+.gray:hover {
+  background: #666;
+  text-decoration: none;
+  color: #000;
+}
+
+
+
+/* Calendar */
+
+.calendar-container {
+	width: 230px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+		
+	.block {
+		margin: 25px auto;
+		background: #394264;
+		border-radius: 0px;
+	}
+
+
+.icon {
+	font-size: 25px;
+}
+
+.titular {
+	display: block;
+	line-height: 2.3em;
+	font-size: 1.2em;
+	color: #FFF;
+	margin: 0;
+	text-align: center;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+	
+.arrow-btn-container {
+	position: relative;
+}
+	.arrow-btn {
+		position: absolute;
+		display: block;
+		width: 40px;
+		height: 40px;
+		-webkit-transition: background .3s;
+		transition: background .3s;
+	}
+		.arrow-btn:hover {
+			text-decoration: none;
+		}
+		.arrow-btn.left {
+			border-top-left-radius: 5px;
+		}
+		.arrow-btn.right {
+			border-top-right-radius: 5px;
+			right: 0;
+			top: 0;
+		}
+		.arrow-btn .icon {
+			display: block;
+			font-size: 18px;
+			border: 2px solid #fff;
+			border-radius: 100%;
+			line-height: 16px;
+			width: 21px;
+			margin: 10px auto;
+			text-align: center;
+		}
+			.arrow-btn.left .icon {
+				padding-right: 2px;
+			}
+
+			.calendar-month {
+				height: 250px;
+			}
+				.calendar-month .titular {
+					background: #336699;
+				}
+					.calendar-month .arrow-btn:hover {
+						background: #1a4e95;
+					}
+				.calendar {
+					margin: 15px 10px;
+					text-align: center;
+				}
+					.calendar a {
+						font-size: 15px;
+						text-decoration: none;
+						color: #FFF;
+					}
+					
+					.scnd-font-color {
+						color: #9099b7 !important;
+						line-height: 0; 
+					}
+					.calendar td, .calendar th {
+						width: 30px;
+						height: 30px;
+					}
+					.calendar .days-week {
+						color: #6699cc;
+					}
+					.calendar .today {
+						display: block;
+						width: 30px;
+						line-height: 30px;
+						background: #e64c65;
+						border-radius: 0%;
+					}
+
+.calendar-arrow-right {
+}
+
+.calendar-arrow-left {
+}
+
+
+
+
+ul.tabs
+{
+}
+        
+ul.tabs li
+{
+}
+        
+ul.tabs li a
+{
+}
+        
+ul.tabs li a:visited
+{
+}
+        
+ul.tabs li a:hover
+{
+
+}
+        
+ul.tabs li.selected a, ul.tabs li.selected a:hover
+{
+
+}
+        
+        
+ul.tabs li.selected a:hover
+{
+}
+     
+
+div.tabcontents
+{
+
+}
+
+	
+}
+
+
+
+
+/* Desktop Layout: 950px to a max of 1232px.  Inherits styles from: Mobile Layout and Tablet Layout. */
+
+@media only screen and (min-width: 950px) {
+	
+.category-wrapper-meteo {
+}
+
+	.category-wrapper-meteo p {
+	}
+	
+	.category-wrapper-meteo ul {
+	}
+	
+	.category-wrapper-meteo li {
+
+	}
+
+		.category-wrapper-meteo li a {
+	
+			}
+	
+			.category-wrapper-meteo li a:hover {
+	
+				}
+
+
+ul.tabs
+{
+    text-align: left; /*set to left, center, or right to align the tabs as desired*/
+	padding-top: 3%;
+}
+        
+ul.tabs li
+{
+}
+        
+ul.tabs li a
+{
+  font-size: 12px;
+  border-bottom-color: transparent;
+  line-height: 1em;
+}
+
+        
+ul.tabs li a:visited
+{
+}
+        
+ul.tabs li a:hover
+{
+
+}
+        
+ul.tabs li.selected a, ul.tabs li.selected a:hover
+{
+     border-bottom-color: white;
+
+}
+        
+        
+ul.tabs li.selected a:hover
+{
+}
+     
+
+div.tabcontents
+{
+
+}
+
+
+}
+
+
+

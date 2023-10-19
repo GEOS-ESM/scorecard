@@ -1,0 +1,8 @@
+<div id="top-links-box" class="top-links-text fluid">
+    <a href="{{ url_for('index') }}" style="{% if instance == 'weather' %}color: #b7a98b;{% endif %}">Weather</a>
+ | <a href="{{ url_for('index', instance='missions') }}" style="{% if 'mission' in instance %}color: #b7a98b;{% endif %}">Mission Support</a>
+ | <a href="{{ url_for('index', instance='cf') }}" style="{% if instance == 'cf' %}color: #b7a98b;{% endif %}">CF</a>
+ | <a href="{{ url_for('index', instance='reanalysis') }}" style="{% if instance == 'reanalysis' %}color: #b7a98b;{% endif %}">Reanalysis</a>
+ | <a href="{{ url_for('index', instance='carbon') }}" style="{% if instance == 'carbon' %}color: #b7a98b;{% endif %}">Carbon</a>
+ | <a href="{{ url_for('index', instance='s2s') }}" style="{% if instance == 's2s' %}color: #b7a98b;{% endif %}">S2S</a>
+</div>

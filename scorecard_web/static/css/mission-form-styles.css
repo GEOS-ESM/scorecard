@@ -1,0 +1,99 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+.form-container {
+ 	width: 90%;
+	text-align: left;
+}
+
+
+
+.form-container p {
+ 	font-size: 1.2em;
+}
+
+.section-heading {
+ 	font-size: 1.5em;
+	font-weight: bold;
+	color: #3F518D;
+	margin-bottom: 2em;
+}
+
+.form-container select {
+  width: 90%;
+  padding: 10px 10px;
+  margin: 8px 0;
+  font-size: 1.2em;
+  background-color: #F2F2F2;
+  border: 1px;
+  border-radius: 0px;
+}
+
+.form-container input[type=text] {
+    width: 90%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	font-size: 1.2em;
+	background-color: #F2F2F2;
+}
+
+.form-container input[type=email] {
+    width: 90%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	font-size: 1.2em;
+	background-color: #F2F2F2;
+}
+
+.form-container input[type=date] {
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	font-size: 1.2em;
+	background-color: #F2F2F2;
+}
+
+.form-container input[type=url] {
+    width: 90%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	font-size: 1.2em;
+	background-color: #F2F2F2;
+}
+
+.form-container input[type=checkbox] {
+    margin: 14px 0 8px 20px;
+	font-size: 1.2em;
+}
+
+.form-container textarea {
+    width: 90%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	font-size: 1.2em;
+	background-color: #F2F2F2;
+}
+
+.form-container input[type=submit] {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+	font-size: 1.4em;
+}
+
+.form-container input[type=submit]:hover {
+	background-color: #999;
+}
+
+.space-fill {
+	margin-top: 4000px;
+	padding-top: -4000px;	
+}

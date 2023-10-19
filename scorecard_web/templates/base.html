@@ -50,10 +50,6 @@
   </div>
 
   <!-- MESSAGE ALERT SECTION -->
-  <p id="demo"></p>
-  {% block mainnav %}
-  {% include 'mainnav.html' with context %}
-  {% endblock mainnav %}
   {% block top_buttons %}{% endblock %}
 
   <!-- Alert Banner -->
@@ -83,17 +79,12 @@
     <div class="footer-mobile-nasa-logo"><img src="{{ url_for('static', filename='img/nasa-logo.png') }}" alt="NASA logo"/></div>
   </div>
 
-  <!--  if 'gram' not in request.endpoint %}-->
   <script src="{{ url_for('static', filename='js/jquery.slicknav.js') }}"></script>
-  <!--  else %}
-  <script src="{{ url_for('static', filename='js/jquery.slicknav_gram.js') }}"></script>
-   endif %}-->
   <script type="text/javascript">
     $(document).ready(function(){
       $("#menu").slicknav();
     });
   </script>
-  <script src="{{ url_for('wxmaps.static', filename='plots/ops-notice.js') }}"></script>
   </div>
 </body>
 </html>

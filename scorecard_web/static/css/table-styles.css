@@ -1,0 +1,83 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+
+/* TABLE STYLES */
+
+
+.rTable {
+		display: table;
+		border: thin solid #CCC;
+		border-collapse:collapse;
+		margin-bottom: 3%;
+		height: 100%;
+
+}
+		.rTableRow {
+		    	display: table-row;
+		}
+	
+		.rTableHead, .rTableCell {
+		    	display: table-cell;
+				border: thin solid #CCC
+		}
+		
+		.rTableHead {
+		    	height: .8em;
+				padding: .8em;
+		}
+		
+		.rTableHeading {
+		    	display: table-header-group;
+		    	background-color: #ccc;
+				font-size: 1.5em;
+				color: #333;
+		}
+		.rTableFoot {
+		    	display: table-footer-group;
+		    	font-weight: bold;
+		    	background-color: #CCC;
+		}
+		.rTableBody {
+		    	display: table-row-group;
+		}
+
+
+
+
+/* Small mobile Layout: max 480px. Inherits styles from above. */
+
+@media only screen and (max-width: 480px) {
+	
+	
+	
+.rTable {
+		width: 90%;
+		margin: 2em auto 2em auto;
+		height: auto;
+     	}
+		
+		.rTableRow {
+		}
+	
+		.rTableHead, .rTableCell {
+     		padding: 2%;
+			font-size: .8em;
+		}
+		
+		.rTableHeading {
+		}
+		
+	    .rTableFoot {
+		    	display: table-footer-group;
+		    	font-weight: bold;
+		    	background-color: #CCC;
+		}
+		.rTableBody {
+		    	display: table-row-group;
+		}
+
+
+}

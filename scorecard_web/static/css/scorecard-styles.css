@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/* CSS Document */
+
+table.scorecard {
+	margin: 0 auto;
+}
+
+table.scorecard, td, th {
+	border: solid thin #9F9A9A;
+	border-collapse: collapse;
+	text-align:center;
+}
+
+.scorecard th {
+	background-color: #B1AEAE;
+	padding: 5px 0;
+	font-size: 1.1em;
+	line-height: 2em;
+}
+
+.td-subheading {
+	background-color: #E2E0E0;
+	font-weight: bold;
+	padding: 5px 0;
+	font-size: 1em;
+	line-height: 2em;
+	text-align: center;
+}
+
+.scorecard td {
+	padding: 5px 0;
+}
+
+
+#table-container {
+	width: 96%;
+}
+
+.table-box {
+	width: 30%;
+	display: inline-block;
+	margin: 0 5px;
+}

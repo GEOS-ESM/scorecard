@@ -1,0 +1,63 @@
+# Rule 1
+User-agent: Googlebot
+Disallow: /
+Disallow: /css
+Disallow: /js 
+Disallow: /old
+Disallow: /img 
+Disallow: /font
+
+# Rule google-xrawler
+User-agent: google-xrawler
+Disallow: /
+Disallow: /css
+Disallow: /js 
+Disallow: /old
+Disallow: /img 
+Disallow: /font
+# Rule 3
+User-agent: SemrushBot
+Disallow: /
+Disallow: /css
+Disallow: /js 
+Disallow: /old
+Disallow: /img 
+Disallow: /font
+# Rule 4 
+User-agent: Bingbot
+Disallow: /
+Disallow: /css
+Disallow: /js 
+Disallow: /old
+Disallow: /img 
+Disallow: /font
+# Rule 5 
+User-agent: slurp
+Disallow: /
+Disallow: /css
+Disallow: /js 
+Disallow: /old
+Disallow: /img 
+Disallow: /font
+User-agent: Baiduspider 
+Disallow: /
+Disallow: /css
+Disallow: /js 
+Disallow: /old
+Disallow: /img 
+Disallow: /font
+# Rule 7 
+User-agent: YandexBot
+Disallow: /
+Disallow: /css
+Disallow: /js 
+Disallow: /old
+Disallow: /img 
+Disallow: /font
+User-agent: MSNBot
+Disallow: /
+Disallow: /css
+Disallow: /js 
+Disallow: /old
+Disallow: /img 
+Disallow: /font
