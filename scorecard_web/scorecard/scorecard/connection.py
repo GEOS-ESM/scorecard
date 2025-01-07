@@ -1,6 +1,6 @@
 
 
-import psycopg
+import psycopg2
 #import psycopg2.sql as sql
 from . import config
 import flask

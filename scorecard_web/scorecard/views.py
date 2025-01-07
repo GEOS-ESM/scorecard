@@ -12,7 +12,7 @@ import itertools
 from scipy.special import stdtr
 
 import sys
-import psycopg
+import psycopg2
 
 #from . import app
 

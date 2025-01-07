@@ -2,6 +2,8 @@ import os
 import sys
 sys.stdout = sys.stderr
 
+from werkzeug.middleware.proxy_fix import ProxyFix
+
 # generic path manipulation
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 #sys.path.insert(0, '/portal/web/cgi-bin/gmao/data-services/')
@@ -15,13 +17,9 @@ matplotlib.use('Agg')
 # main application
 from scorecard_web import app as application
 
-
-#from application import app
-
-#app = Flask(__name__)
-
-#appli_context = application.app_context()
-#appli_context.push()
+application.wsgi_app = ProxyFix(
+    application.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
+)
 
 if __name__ == '__main__':
     application.run(debug=False)

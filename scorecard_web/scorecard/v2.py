@@ -60,11 +60,11 @@ import scorecard_util
 
 #@app.errorhandler(404)
 def page_not_found(e):
-    return '<img src="https://http.cat/404.jpg"><br><p>'+str(e.message)+'</p><br><p>'+str(e.description)+'</p>'
+    return '<img src="https://http.cat/404.jpg"><br><p>'+'Page Unavailable.'#str(e.message)+'</p><br><p>'+str(e.description)+'</p>'
 
 #@app.errorhandler(500)
 def page_not_found(e):
-    return '<img src="https://http.cat/500.jpg"><br><p>'+str(e.message)+'</p><br><p>'+str(e.description)+'</p>'
+    return '<img src="https://http.cat/500.jpg"><br><p>'+'Page Unavailable'#str(e.message)+'</p><br><p>'+str(e.description)+'</p>'
 
 #@app.route('/v2/') #, methods=['GET', 'POST'])
 def api_v2():

@@ -41,7 +41,7 @@ app.config.from_object(DevConfig) #Comment out on sync
 app.jinja_env.add_extension('jinja2.ext.do')
 
 # applications register
-app.register_blueprint(scorecard.app, url_prefix='/scorecard')
+app.register_blueprint(scorecard.app)#, url_prefix='/scorecard')
 
 # standard page titles
 title = 'GMAO Scorecard Tool'
@@ -65,6 +65,10 @@ def favicon():
         'img/nasa.ico', mimetype='image/vnc.microsoft.icon')
 
 @app.route('/')
+@app.route('/scorecard/')
+def index():
+    return flask.render_template('scorecard/landing.html')
+
 @app.route('/about/')
 def about():
     return flask.render_template(
