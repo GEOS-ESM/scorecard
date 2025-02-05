@@ -529,8 +529,6 @@ def db_check_tool():
 
     base_url = check_branch()
 
-    print('BASE URL CHECK', base_url)
-
     return flask.render_template('scorecard/db_check.html', exp_dates = exp_dates, date_range = date_range, exp_options = exp_options, ev_list = ev_list, exp_name = exp_name, ctrl_name = ctrl_name, bdate_val = bdate_val, edate_val = edate_val, base_url = base_url)
 
 def db_date_range(exp):
