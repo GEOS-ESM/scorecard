@@ -52,7 +52,7 @@
   {% endblock %}
 
   {% block content %}
-    <!-- Main Content -->
+    <!-- Main Content TEST -->
     <div id="content-container" class="fluid" style="width: 100%;">
       <div style="float:right; width:7%;"><br></div>
       <div style="text-align:left;float:right;width:25%;">
@@ -98,7 +98,7 @@
                 </tr>
                 {% for field in data[region]|sort %}
                 {% set f = field %}
-                {% set i = 0 %}
+                {% set ns = namespace(i=0.0) %}
                 <tr>
                   <td rowspan="{{ data[r][f]|length }}">{{ f | replace("p", "SLP") | replace("u", "U-Wind") | replace("t", "Temperature") | replace("h", "Geopotential Height") | replace("q", "Specific Humidity") | replace("v", "V-Wind") }}</td>
                 {%- set levels = [] -%}
@@ -108,10 +108,10 @@
                 {% for level in levels|sort %}
                   {%- set l = level|string -%}
                   {%- if levels|length == 1 -%}
-                    {%- set i = 6 -%}
+                    {%- set ns.i = 6 -%}
                   {%- endif -%}
-                  <td style="background-color: rgba(61, 97, 212, {{ i*0.1 }})">{{ l }}</td>
-                  {% set i = i + 1 %}
+                  <td style="background-color: rgba(61, 97, 212, {{ ns.i }})">{{ l }}</td>
+                  {%- set ns.i = (ns.i + 0.1) -%}
                   <td>
                     {%- for t,s in data[r][f][l]['cor'] -%}
                       {%- if s == 3 -%}

@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block content %}
+
+<!-- DEV TEMP TEST -->
+
 <div id="content-container" class="fluid" style="text-align: left;">
   <h1>Scorecard Generation Assistant</h1>
   <p>These forms aid in generating a scorecard using experimentation entered into the GMAO experiment database.</p>
@@ -48,9 +51,9 @@
     <br>
     <input type="submit" name="gen_sc_url" value="Generate URL"/>
     {% if exp_name and ctrl_name and bdate_val and edate_val %}
-      <p>Scorecard URL: <a href="https://scorecard-dev.nccs.nasa.gov/scorecard/v1/?exp={{ exp_name }}&cntrl={{ ctrl_name }}&bdate={{ bdate_val }}&edate={{ edate_val }}" >https://scorecard-dev.nccs.nasa.gov/scorecard/v1/?exp={{ exp_name }}&cntrl={{ ctrl_name }}&bdate={{ bdate_val }}&edate={{ edate_val }}</a></p>
+    <p>Scorecard URL: <a href="https://{{ base_url }}/scorecard/v1/?exp={{ exp_name }}&cntrl={{ ctrl_name }}&bdate={{ bdate_val }}&edate={{ edate_val }}" >https://{{ base_url }}/scorecard/v1/?exp={{ exp_name }}&cntrl={{ ctrl_name }}&bdate={{ bdate_val }}&edate={{ edate_val }}</a></p>
       <p>Command Line Interface Argument: python /discover/nobackup/cwayman/scorecard/views.py --exp {{ exp_name }} --cntrl {{ ctrl_name }} --bdate {{ bdate_val }} --edate {{ edate_val }}</p>
-      <p>Before running the command line scorecard tool on discover, please issue the following command from the bash shell to set up your environment: source /discover/nobackup/cwayman/scorecard/modules
+      <p>Before running the command line scorecard tool on discover, please issue the following command from the bash shell to set up your environment: source /discover/nobackup/cwayman/scorecard/modules_3
     {% endif %}
   </form>
   <br>

@@ -527,7 +527,11 @@ def db_check_tool():
         bdate_val = None
         edate_val = None
 
-    return flask.render_template('scorecard/db_check.html', exp_dates = exp_dates, date_range = date_range, exp_options = exp_options, ev_list = ev_list, exp_name = exp_name, ctrl_name = ctrl_name, bdate_val = bdate_val, edate_val = edate_val)
+    base_url = check_branch()
+
+    print('BASE URL CHECK', base_url)
+
+    return flask.render_template('scorecard/db_check.html', exp_dates = exp_dates, date_range = date_range, exp_options = exp_options, ev_list = ev_list, exp_name = exp_name, ctrl_name = ctrl_name, bdate_val = bdate_val, edate_val = edate_val, base_url = base_url)
 
 def db_date_range(exp):
     conn = scorecard.connection.Connection(db='fc_exp', host='edb1')
@@ -593,9 +597,11 @@ def db_expver_list(exp):
 
     return ev_list
 
-#@app.route('/<api>/', methods=['GET', 'POST'])
-#def api2(api='blah'):
-#    return flask.render_template(
-#            'construction.html',
-#            service="GEOS Scorecard",
-#        )
+def check_branch():
+    fpath = os.getcwd()
+    if 'scorecarddev' in fpath:
+        base_url = "scorecard-dev.nccs.nasa.gov"
+    else:
+        base_url = "scorecard.nccs.nasa.gov"
+
+    return base_url
