@@ -1,0 +1,10 @@
+[project]
+name = "gmao-scorecard"
+version = "0.0.1"
+
+dependencies = [
+  "flask",
+  "psycopg2-binary",
+  "numpy",
+  "scipy"
+]
