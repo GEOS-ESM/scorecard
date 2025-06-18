@@ -1,5 +1,10 @@
 # GMAO scorecard
 
+## Prerequisites
+
+Scorecard usage currently requires read (`select`) access to the `gmao_stats` (for `fc_ops`) and `semper` (`fc_exp`) PostgreSQL databases on `edb1`.
+The username and password for those must be configured in your `~/.pgpass` file for scorecard to work.
+
 ## Usage
 
 (Assuming this is running on NCCS Discover SLES15, from the root directory of this repository.)
