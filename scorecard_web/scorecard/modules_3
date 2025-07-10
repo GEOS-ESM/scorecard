@@ -1,0 +1,22 @@
+#!/bin/csh
+
+# needs to be hosted/self-contained and not linked to user-dependent path
+#setenv MODULEPATH /discover/nobackup/ebsmith2/gpy/releases/modules:$MODULEPATH
+#module use -a /discover/nobackup/ebsmith2/gpy/releases/modules
+#module use -a /home/mathomp4/modulefiles-SLES12/
+#module load gpy/1.93_sles12
+#module load python/MINIpyD/3.9
+#module use -a /home/cwayman/nobackup/modulefiles/
+#module load scorPy/scorecard_prep_1.0.0
+#module load python/GEOSpyD/Ana2019.10_py2.7
+
+module use -a /discover/nobackup/cwayman/modulefiles 
+module load scorPy/scorecard_prep_1.1.0
+
+#python/GEOSpyD/Min4.8.3_py2.7
+
+# for psql command-line
+module use -a /discover/swdev/gmao_SIteam/modulefiles-SLES12
+module load other/postgreSQL
+
+#setenv SEMPERPY_CONFIG /discover/nobackup/ebsmith2/o2h/o2h/config
