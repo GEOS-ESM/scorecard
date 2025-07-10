@@ -24,6 +24,7 @@ class Connection(object):
             # note: assumes .pgpass is available
 
             # version can differ between (dbname/database)
+            print(host, config.db[self.db], config.user)
             self.con = psycopg2.connect(
                 host=host, database=config.db[self.db],
                 user=config.user
@@ -70,7 +71,7 @@ class Connection(object):
         # build query
         query = 'select date, value from ' + self.db + '.v_view where expver=%s '
         args = [expver]
-        for key,value in list(kwargs.items()):
+        for key,value in kwargs.items():
             query += ' and '
             if isinstance(value, list):
                 query += key + ' in %s'

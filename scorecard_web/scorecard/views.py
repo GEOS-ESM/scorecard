@@ -1,7 +1,7 @@
-
+#!/usr/bin/env python3
 
 import logging
-logging.basicConfig(level='WARN') # put in config?
+logging.basicConfig(level='WARN')
 
 import os
 import flask
