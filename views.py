@@ -127,7 +127,7 @@ def critval(confidence, size):
     # why loop through 20 times? - bisection method N limit to not go to inf
     for i in range(20):
         # this is the same as the last chigh calculation (on first iteration)
-        # subsequent iterations are supposed to narrow 
+        # subsequent iterations are supposed to narrow
         c=stdtr(size-1,tcrit)-stdtr(size-1,-tcrit)
         # raise tcrit if chigh(or c in this case) is lower than 90%
         #print(c, confidence, tcrit)
@@ -164,25 +164,25 @@ class Identical(object):
         # Will's doesn't work for RMS significances
         if self.name() in 'cor':
             diff = self.difference(reference, exp)
-    
+
             # modified calc from Will in regards to difference in transform means
             zreference = self.transform(reference)
             zexp = self.transform(exp)
-    
+
             # take mean while transformed in z-space
             ztmn1 = np.mean(zreference, 0)
             ztmn2 = np.mean(zexp, 0)
-    
+
             # transform back to normal space
             referencemn = self.transform_back(ztmn1)
             expmn = self.transform_back(ztmn2)
-    
+
             # 0.5 * diff = half the difference because we are using means?
             ztdiff = 0.5 * np.log( (1.0 + 0.5*diff)  / (1.0 - 0.5*diff) ) # why is there no additio of 1e-6?
-    
+
             ztmn = np.mean(ztdiff, 0)
             ztvar = np.var(ztdiff, 0)
-    
+
             dof = np.ma.count(diff, 0) # changed due to GMAOPy structure of arrays
             crits = np.zeros(dof.shape[0])
             for i in range(len(dof)):
@@ -208,7 +208,7 @@ class Identical(object):
             upper = self.transform_back(dx)
             lower = -upper
             diff = self.transform_back(diff)
-    
+
             #print(lev)
             #print(cordiff)
             #print(corlow)
@@ -578,13 +578,13 @@ def make_card(region, data):
     #               [ax71, ax72, ax73, ax74, ax75, ax76, ax77],
     #               [ax78, ax79, ax80, ax81, ax82, ax83, ax84]]
 
-    ax_dict = {'rms': {'h': {'10': ax87, '70': ax88, '100': ax89, '250': ax90, '500': ax91, '700': ax92, '850': ax93}, 
-	                   'p': {'1000': ax94}, 
+    ax_dict = {'rms': {'h': {'10': ax87, '70': ax88, '100': ax89, '250': ax90, '500': ax91, '700': ax92, '850': ax93},
+	                   'p': {'1000': ax94},
                        'q': {'10': ax95, '70': ax96, '100': ax97, '250': ax98, '500': ax99, '700': ax100, '850': ax101},
-                       't': {'10': ax102, '70': ax103, '100': ax104, '250': ax105, '500': ax106, '700': ax107, '850': ax108}, 
-                       'u': {'10': ax109, '70': ax110, '100': ax111, '250': ax112, '500': ax113, '700': ax114, '850': ax115}, 
+                       't': {'10': ax102, '70': ax103, '100': ax104, '250': ax105, '500': ax106, '700': ax107, '850': ax108},
+                       'u': {'10': ax109, '70': ax110, '100': ax111, '250': ax112, '500': ax113, '700': ax114, '850': ax115},
                        'v': {'10': ax116, '70': ax117, '100': ax118, '250': ax119, '500': ax120, '700': ax121, '850': ax122}},
-               'cor': {'h': {'10': ax49, '70': ax50, '100': ax51, '250': ax52, '500': ax53, '700': ax54, '850': ax55}, 
+               'cor': {'h': {'10': ax49, '70': ax50, '100': ax51, '250': ax52, '500': ax53, '700': ax54, '850': ax55},
                        'p': {'1000': ax56},
                        'q': {'10': ax57, '70': ax58, '100': ax59, '250': ax60, '500': ax61, '700': ax62, '850': ax63},
                        't': {'10': ax64, '70': ax65, '100': ax66, '250': ax67, '500': ax68, '700': ax69, '850': ax70},
@@ -674,26 +674,26 @@ def add_cards(f_name, f_format='PNG'):
     crop_r = 50
     crop_b = 50
     crop_diff = 50
-	
+
     nhem = Image.open('n.hem_card_cli_temp.png')
     w, h = nhem.size
     nhem = nhem.crop((crop_l, crop_u, w-crop_r, h-crop_b))
-	
+
     shem = Image.open('s.hem_card_cli_temp.png')
     w, h = shem.size
     shem = shem.crop((crop_l, crop_u, w-crop_r, h-crop_b))
-	
+
     tropics = Image.open('tropics_card_cli_temp.png')
     w, h = tropics.size
     tropics = tropics.crop((crop_l, crop_u, w-crop_r, h-crop_b))
-	
+
     nx = config_dict['n.hem']['x']
     ny = config_dict['n.hem']['y']
     sx = config_dict['s.hem']['x']
     sy = config_dict['s.hem']['y']
     tx = config_dict['tropics']['x']
     ty = config_dict['tropics']['y']
-	
+
     # Re-size the cards on the main scorecard
 
     #bg = bg.resize((6000, 4800))
@@ -707,11 +707,11 @@ def add_cards(f_name, f_format='PNG'):
     nhem = nhem.resize((card_w, card_h))
     shem = shem.resize((card_w, card_h))
     tropics = tropics.resize((card_w, card_h))
-	
+
     bg.paste(nhem, (nx, ny), nhem)
     bg.paste(shem, (sx, sy), shem)
     bg.paste(tropics, (tx, ty), tropics)
-	
+
     bg.save(f_name, format=f_format)
     bg.close()
 
@@ -721,15 +721,15 @@ if __name__ != '__main__':
         # inputs (assume they exist and are correct within database)
         args_exp = flask.request.args.get('exp', None)
         args_cntrl = flask.request.args.get('cntrl', None)
-    
+
         '''
         future extensions:
             - output = 'compact' - printer/journal quality
             - input = ['obs', 'fcst']
         '''
-    
+
         #print(flask.request.args)
-    
+
         # first, test db connection and find corresponding db
         try:
             db_exp, args_exp = check_db(args_exp)
@@ -742,19 +742,19 @@ if __name__ != '__main__':
             logging.error(e)
             flask.abort(500)
         print(db_exp, args_exp, db_cntrl, args_cntrl)
-    
+
         # create db connections
         exp = scorecard.connection.Connection(db=db_exp)
         cntrl = scorecard.connection.Connection(db=db_cntrl)
-    
+
         # get dates/times
         bdate = flask.request.args.get('bdate', None)
         edate = flask.request.args.get('edate', None)
         bdate = dt.date(int(bdate[:4]), int(bdate[4:6]), int(bdate[6:8]))
         edate = dt.date(int(edate[:4]), int(edate[4:6]), int(edate[6:8]))
-    
+
         card = do_work(db_exp, args_exp, exp, args_cntrl, cntrl, bdate, edate)
-    
+
         # with an api, we should return only a single score block as a json object and let other routes use the api in
         # conjunction with forms and user interactivity
         verify = 'self'
@@ -858,7 +858,7 @@ def do_work(db_exp, args_exp, exp, args_cntrl, cntrl, bdate, edate):
                       'date':          date,
                   }
                 )
-    
+
                 c = cntrl.get(
                   args_cntrl,
                   **{
@@ -871,12 +871,12 @@ def do_work(db_exp, args_exp, exp, args_cntrl, cntrl, bdate, edate):
                       #'verify': 'ecmwf',
                   }
                 )
-    
+
                 # if step == 0:
                 #     continue
                 # need to accept delta t
                 # if no dates are given, use what is in the db that is common between exp and cntrl
-    
+
                 # there could be a mismatch to the exp/cntrl dates
                 dates_e = [x for x,y in e]
                 dates_c = [x for x,y in c]
@@ -889,17 +889,17 @@ def do_work(db_exp, args_exp, exp, args_cntrl, cntrl, bdate, edate):
                         flask.abort(500)
                     except:
                         sys.exit(1)
-    
+
                 #dates = [x for x,y in e for a,z in c if x==a]
                 values_e = np.array([[y] for x,y in e])
                 values_c = np.array([[z] for a,z in c])
                 # e = sorted(e)
-    
+
                 if stat in 'rms':
                     score = RootMeanSquare()
                 else:
                     score = Correlation()
-    
+
                 # test for empty sets
                 if not len(values_e):
                     print('experiment',field, level, domain, stat, date)
@@ -909,7 +909,7 @@ def do_work(db_exp, args_exp, exp, args_cntrl, cntrl, bdate, edate):
                 e_data.append(np.stack(values_e, 1)[0])
                 c_data.append(np.stack(values_c, 1)[0])
 
-            # need to stack these due to Will's code only doing a 
+            # need to stack these due to Will's code only doing a
             #for i in fcst_length:
             sig = score.significance(
                 np.ma.masked_values(c_data, 1.7e+38),
