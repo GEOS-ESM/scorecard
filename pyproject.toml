@@ -6,5 +6,7 @@ dependencies = [
   "flask",
   "psycopg2-binary",
   "numpy",
-  "scipy"
+  "scipy",
+  "pillow",
+  "matplotlib"
 ]
