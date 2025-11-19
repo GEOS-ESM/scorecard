@@ -1,0 +1,25 @@
+running the command line scorecard on discover for Arlindo
+
+load the proper modules:
+source /discover/nobackup/cwayman/scorecard/modules_3
+
+execute python commands to run the scorecards:
+GenCast
+ python /discover/nobackup/cwayman/scorecard/views.py --exp GenCast --cntrl f5295_fp --bdate 2024050100 --edate 2024053100
+ python /discover/nobackup/cwayman/scorecard/views.py --exp GenCast --cntrl f5295_fp --bdate 2024120100 --edate 2024123100
+
+Aifs
+ python /discover/nobackup/cwayman/scorecard/views.py --exp Aifs --cntrl f5295_fp --bdate 2024050100 --edate 2024053100
+ python /discover/nobackup/cwayman/scorecard/views.py --exp Aifs --cntrl f5295_fp --bdate 2024120100 --edate 2024123100
+
+Aurora
+ python /discover/nobackup/cwayman/scorecard/views.py --exp Aurora --cntrl f5295_fp --bdate 2024050100 --edate 2024053100
+ python /discover/nobackup/cwayman/scorecard/views.py --exp Aurora --cntrl f5295_fp --bdate 2024120100 --edate 2024123100
+
+Pangu 
+ python /discover/nobackup/cwayman/scorecard/views.py --exp Pangu --cntrl f5295_fp --bdate 2024050100 --edate 2024053100
+ python /discover/nobackup/cwayman/scorecard/views.py --exp Pangu --cntrl f5295_fp --bdate 2024120100 --edate 2024123100
+
+PrithviAI
+ python /discover/nobackup/cwayman/scorecard/views.py --exp PrithviAI --cntrl f5295_fp --bdate 2024050100 --edate 2024053100
+ python /discover/nobackup/cwayman/scorecard/views.py --exp PrithviAI --cntrl f5295_fp --bdate 2024120100 --edate 2024123100
